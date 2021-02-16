@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import pooPoo from './poopoo.jpg'
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
+import pooPoo from "./poopoo.jpg";
+
+function foobar() {
+  return (
+    <React.Fragment>
+      <h2>Look here as well</h2>
+      <p>poo poo pee pee</p>
+      <h5>pew pew</h5>
+    </React.Fragment>
+  );
+}
 
 function App() {
-    return (
-        <React.Fragment>
-            <h1 className='header'>Hello</h1>
-            <p>hoooooomann</p>
-            <p style={{
-                fontFamily:'monospace',
-                fontSize:'30px',
-                
-            }}>pee pee poo poo</p>
-            <h5>pee pee poo poo</h5>
-            <h2>pew pew</h2>
-            <img src={require('./puppy.jpg').default} />
-            <img src={pooPoo} />
-
-        </React.Fragment>
-    );
+  let message = <h2>Look here</h2>;
+  return (
+    <React.Fragment>
+      <h1 className="header">Hello World</h1>
+      {message}
+      <p
+        style={{
+          fontFamily: 'monospace',
+          fontSize: "24px"
+        }}
+      >
+        Welcome to my home page
+      </p>
+      <img src={require("./puppy.jpg").default} />
+      <img src={pooPoo} />
+      {foobar()}
+    </React.Fragment>
+  );
 }
 
 export default App;
