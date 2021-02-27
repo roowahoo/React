@@ -17,6 +17,7 @@ export default class TodoList extends React.Component{
         acc.push(<div key={t.id}>
             {t.title}
             <input type='checkbox' checked={t.done} onChange={()=>{this.updateTaskCheckBox(t)}}/>
+            <button onClick={()=>{this.deleteTask(t)}}>Delete</button>
         </div>)
         }
         return acc
@@ -66,5 +67,18 @@ export default class TodoList extends React.Component{
         this.setState({
             tasks:clonedArray
         })
+    }
+
+    deleteTask=(taskToDelete)=>{
+        let index=this.state.tasks.findIndex(t=>t.id===taskToDelete.id)
+        let clonedArray=[
+            ...this.state.tasks.slice(0,index),
+            ...this.state.tasks.slice(index+1)
+
+        ]
+        this.setState({
+            tasks:clonedArray
+        })
+
     }
 }
